@@ -1,0 +1,26 @@
+Projeto de automação de testes do site Tango Leadership Coaching
+
+Pré-condições: ter o node js instalado.
+
+para instalar as dependecias do projeto executar: 
+
+npm install
+ou
+yarn install
+
+para executar os testes automatizados: 
+
+npx playwright test
+ou
+yarn playwright test
+
+para abrir o relatorio de testes: 
+
+npx playwright show-report
+ou
+yarn playwright show-report
+
+links de apoio: 
+https://nodejs.org/en/
+https://playwright.dev/
+
