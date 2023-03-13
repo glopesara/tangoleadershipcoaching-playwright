@@ -27,11 +27,30 @@ export class HomePage {
                 await this.page.click(`//ul[@class="sub-menu"]//li//a[text()="${menu}"]`)
                 break
             default:
-                break
+                throw new Error(`O menu ${menu} é incorreto:`);
+                break;
         }
     }
 
-    validateMenuTargeting = async (menu: string) => {
+    hoverSession = async (sesion: string) => {
+        switch (sesion) {
+            case 'You want':
+                {
+                    await this.page.hover('//h3[text()="You want…"]')
+                }
+                break;
+            case 'We want':
+                {
+                    await this.page.hover('//h3[text()="We want…"]')
+                }
+                break
+            default:
+                throw new Error(`Não foi encontrada a sessão ${sesion}`);
+                break;
+        }
+    }
+
+    validateTargetMenu = async (menu: string) => {
         switch (menu) {
             case 'Home':
                 {
@@ -78,6 +97,24 @@ export class HomePage {
                 }
             default:
                 throw new Error(`O menu ${menu} é incorreto:`);
+                break;
+        }
+    }
+
+    validateSessionHover = async (session: string) => {
+        switch (session) {
+            case 'You want':
+                {
+                    const target = this.page.locator('css=span >> text=To have a sense of belonging')
+                    await expect(target).toBeVisible()
+                }
+                break;
+            case 'We want':
+                {
+                    const target = this.page.locator('css=span >> text=dreams fizz with life')
+                    await expect(target).toBeVisible()
+                }
+            default:
                 break;
         }
     }
