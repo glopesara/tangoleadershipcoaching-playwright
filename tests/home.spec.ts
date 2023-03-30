@@ -64,7 +64,22 @@ test.describe('realizar teste dos menus pincipais', () => {
   })
 })
 
-test.describe('Are your leaders keeping up?', () => {
+test.describe('validar sessão Leadership Innovation', () => {
+  test('Validar exibição da sessão Leadership Innovation', async ({ page }) => {
+    await homePage.goToHome()
+    const locator = page.locator('css=h1 >> text=Leadership Innovation')
+    const img = page.locator('img[alt="Boneco"]')
+    expect(locator).toBeVisible()
+    expect(img).toBeVisible()
+  })
+  test('validar redirecionamento Know More', async ({ page }) => {
+    await homePage.goToHome()
+    await page.click('//div[contains(@class,"gr-content-header")]//a[@class="gr-btn-know-more"]')
+    await homePage.validateTargetMenu('About')
+  })
+})
+
+test.describe('validar sessão Are your leaders keeping up?', () => {
   test('validar hover no "you want"', async () => {
     const session = 'You want'
     await homePage.goToHome()

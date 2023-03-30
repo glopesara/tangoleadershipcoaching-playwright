@@ -94,6 +94,7 @@ export class HomePage {
                 {
                     const target = this.page.locator('css=h3 >> text=Blog')
                     await expect(target).toBeVisible()
+                    break
                 }
             default:
                 throw new Error(`O menu ${menu} é incorreto:`);
