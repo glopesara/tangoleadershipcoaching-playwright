@@ -65,11 +65,11 @@ test.describe('realizar teste dos menus pincipais', () => {
 })
 
 test.describe('validar sessão Leadership Innovation', () => {
-  test.only('Validar exibição da sessão Leadership Innovation', async ({ page }) => {
+  test('Validar exibição da sessão Leadership Innovation', async ({ page }) => {
     await homePage.goToHome()
     await homePage.validateSessionLeadershipInnovation()
   })
-  test.only('validar redirecionamento Know More', async ({ page }) => {
+  test('validar redirecionamento Know More', async ({ page }) => {
     await homePage.goToHome()
     await homePage.clickKnowMore('Leadership Innovation')
     await homePage.validateTargetMenu('About')
