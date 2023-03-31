@@ -69,8 +69,8 @@ test.describe('validar sessão Leadership Innovation', () => {
     await homePage.goToHome()
     const locator = page.locator('css=h1 >> text=Leadership Innovation')
     const img = page.locator('img[alt="Boneco"]')
-    expect(locator).toBeVisible()
-    expect(img).toBeVisible()
+    await expect(locator).toBeVisible()
+    await expect(img).toBeVisible()
   })
   test('validar redirecionamento Know More', async ({ page }) => {
     await homePage.goToHome()
