@@ -119,4 +119,22 @@ export class HomePage {
                 break;
         }
     }
+
+    validateSessionLeadershipInnovation = async () => {
+        const locator = this.page.locator('css=h1 >> text=Leadership Innovation')
+        const img = this.page.locator('img[alt="Boneco"]')
+        await expect(locator).toBeVisible()
+        await expect(img).toBeVisible()
+    }
+
+    clickKnowMore = async (knowMore: string) => {
+        switch (knowMore) {
+            case 'Leadership Innovation':
+                await this.page.click('//div[contains(@class,"gr-content-header")]//a[@class="gr-btn-know-more"]')
+                break;
+        
+            default:
+                break;
+        }
+    }
 }
